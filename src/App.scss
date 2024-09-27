@@ -1,0 +1,129 @@
+@use 'styles/variables';
+
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: variables.$color-white;
+  border-radius: variables.$border-radius;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  h1 {
+    font-weight: 700;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    .wrapper-columns {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-grow: 1;
+
+      > label,
+      > p {
+        span {
+          color: variables.$color-green-medium;
+          padding-left: 5px;
+        }
+      }
+
+      input,
+      textarea {
+        padding: variables.$padding-field;
+        border-radius: variables.$border-radius-field;
+        border: 1px solid variables.$color-grey-medium;
+        font-size: 1rem;
+        color: variables.$color-grey-dark;
+      }
+
+      input:focus-visible,
+      textarea:focus-visible {
+        outline-color: variables.$color-green-medium;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      
+      .wrapper-radio {
+        label {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          flex: 1;
+          border: 1px solid variables.$color-grey-medium;
+          border-radius: variables.$border-radius-field;
+          padding: variables.$padding-field;
+          
+          &.active {
+            outline: -webkit-focus-ring-color auto 1px;
+            outline-color: variables.$color-green-medium;
+            background-color: variables.$color-green-light;
+          }
+          
+          &:hover {
+            cursor: pointer;
+          }
+          
+          input {
+            height: 1rem;
+            width: 1rem;
+            accent-color: variables.$color-green-medium;
+          }
+        }
+      }
+
+      &.consent {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        label {
+          display: flex;
+        }
+  
+        input {
+          margin-right: 20px;
+          height: 1rem;
+          width: 1rem;
+          accent-color: variables.$color-green-medium;
+        }
+      }
+
+      span[role=alert] {
+        color: variables.$color-red;
+        font-size: .9rem;
+      }
+    }
+    
+    &.inline {
+      flex-direction: row;
+    }
+
+    button[type="submit"] {
+      background-color: variables.$color-green-medium;
+      padding: 20px;
+      border: none;
+      border-radius: variables.$border-radius-field;
+      color: variables.$color-white;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      transition: .3s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: variables.$color-hover;
+      }
+    }
+  }
+}

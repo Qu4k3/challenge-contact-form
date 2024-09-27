@@ -1,0 +1,21 @@
+// ## Colors
+// ### Primary
+$color-green-light: hsl(148, 38%, 91%);
+$color-green-medium: hsl(169, 82%, 27%);
+$color-red: hsl(0, 66%, 54%);
+// ### Neutral
+$color-white: hsl(0, 0%, 100%);
+$color-grey-medium: hsl(186, 15%, 59%);
+$color-grey-dark: hsl(187, 24%, 22%);
+$color-hover: hsl(170, 82%, 13%);
+
+// defaults
+$font-family: 'Karla Variable';
+$font-weight: 500;
+$font-size: 16px;
+$border-radius: 20px;
+$border-radius-field: 8px;
+$padding-field: 15px 25px;
+
+// breakpoints
+$mobile: 576px;
