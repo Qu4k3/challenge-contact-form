@@ -5,6 +5,7 @@ import IconSuccessCheck from './assets/icon-success-check.svg?react';
 import { useForm } from "react-hook-form"
 import ErrorMessage from './components/ErrorMessage';
 import './App.scss'
+import { getFormData } from './utils/utils';
 
 function App() {
   const {
@@ -27,24 +28,29 @@ function App() {
   ];
 
   const onSubmit = (data) => {
-    console.log(data)
     setIsLoading(true)
+    const formData = getFormData(data)
 
-    setTimeout(() => {
-      setIsLoading(false)
-      setIsSubmited(true)
-    }, "1000");
-
-    setTimeout(() => {
-      reset()
-      setIsSubmited(false)
-    }, "5000");
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        setIsSubmited(true)
+      })
+      .catch((error) => alert(error))
+      .finally(() => {
+        reset()
+        setIsLoading(false)
+        setIsSubmited(false)
+      });
   }
 
   return (
     <main>
       <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit(onSubmit)} netlify>
+      <form onSubmit={handleSubmit(onSubmit)} data-netlify="true">
         <div className='wrapper-columns'>
           <div className='form-group'>
             <label htmlFor="firstName">First Name <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
@@ -135,7 +141,7 @@ function App() {
         </div>
 
         <div className='form-group consent'>
-          <label htmlFor="consent">
+          <label>
             <input
               type="checkbox"
               name="consent"
@@ -151,7 +157,7 @@ function App() {
         </div>
 
         <button type="submit" onClick={() => clearErrors()}>
-          {isLoading ? <div class="loader"></div> : 'Submit'}
+          {isLoading ? <div className="loader"></div> : 'Submit'}
         </button>
       </form>
       {isSubmited &&
