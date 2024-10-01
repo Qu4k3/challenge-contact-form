@@ -221,6 +221,10 @@ main {
       > .wrapper-columns {
         gap: 25px;
       }
+
+      textarea {
+        min-height: 120px;
+      }
     }
   }
 }
