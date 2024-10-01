@@ -5,7 +5,7 @@ import IconSuccessCheck from './assets/icon-success-check.svg?react';
 import { useForm } from "react-hook-form"
 import ErrorMessage from './components/ErrorMessage';
 import './App.scss'
-import { getFormData } from './utils/utils';
+// import { getFormData } from './utils/utils';
 
 function App() {
   const {
@@ -30,6 +30,19 @@ function App() {
   const onSubmit = (data) => {
     setIsLoading(true)
 
+    setTimeout(() => {
+      setIsLoading(false)
+      setIsSubmited(true)
+    }, "1000");
+
+    setTimeout(() => {
+      reset()
+      setIsSubmited(false)
+    }, "5000");
+
+    /*
+    setIsLoading(true)
+
     const formData = getFormData(data)
 
     fetch("/", {
@@ -46,6 +59,7 @@ function App() {
         setIsLoading(false)
         setIsSubmited(false)
       });
+    */
   }
 
   return (
