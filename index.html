@@ -6,7 +6,8 @@
   <link rel="icon" type="image/png" href="/favicon-32x32.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frontend Mentor | Contact Form</title>
-  <meta name="description" content="Building accessible forms is a crucial task for front-end developers. This challenge will help you practice building a form with several input types and validation.">
+  <meta name="description"
+    content="Building accessible forms is a crucial task for front-end developers. This challenge will help you practice building a form with several input types and validation.">
 
   <!-- OpenGraph + Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -15,12 +16,19 @@
   <meta property="og:title" content="Frontend Mentor | Contact Form" />
   <meta property="og:description"
     content="Building accessible forms is a crucial task for front-end developers. This challenge will help you practice building a form with several input types and validation." />
-  <meta property="og:image"
-    content="https://challenge-contact-form-qk3.netlify.app/desktop-preview.jpg" />
+  <meta property="og:image" content="https://challenge-contact-form-qk3.netlify.app/desktop-preview.jpg" />
 </head>
 
 <body>
   <div id="root"></div>
+  <form name="contactForm" netlify hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="radio" name="radio" />
+    <textarea name="message"></textarea>
+    <input type="checkbox" name="consent" />
+  </form>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
