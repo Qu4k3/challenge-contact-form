@@ -50,7 +50,8 @@ function App() {
   return (
     <main>
       <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit(onSubmit)} data-netlify="true">
+      <form onSubmit={handleSubmit(onSubmit)} name='contactForm' method='POST' data-netlify="true">
+        <input type="hidden" name="form-name" value="contactForm" />
         <div className='wrapper-columns'>
           <div className='form-group'>
             <label htmlFor="firstName">First Name <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
