@@ -5,13 +5,13 @@ import IconSuccessCheck from './assets/icon-success-check.svg?react';
 import { useForm } from "react-hook-form"
 import ErrorMessage from './components/ErrorMessage';
 import './App.scss'
-// import { getFormData } from './utils/utils';
+import { getFormData } from './utils/utils';
 
 function App() {
   const {
     register,
     watch,
-    handleSubmit,
+    // handleSubmit,
     clearErrors,
     reset,
     formState: { errors },
@@ -27,21 +27,12 @@ function App() {
     { id: "SupportRequest", text: "Support Request" }
   ];
 
-  /*const onSubmit = (data) => {
-    console.log(data)
+  const handleSubmit = (event) => {
     setIsLoading(true)
+    event.preventDefault();
 
-    setTimeout(() => {
-      setIsLoading(false)
-      setIsSubmited(true)
-    }, "1000");
-
-    setTimeout(() => {
-      reset()
-      setIsSubmited(false)
-    }, "5000");
-    /*setIsLoading(true)
-    const formData = getFormData(data)
+    const myForm = event.target;
+    const formData = getFormData(myForm)
 
     fetch("/", {
       method: "POST",
@@ -56,13 +47,13 @@ function App() {
         reset()
         setIsLoading(false)
         setIsSubmited(false)
-      });*/
-  /*}*/
+      });
+  }
 
   return (
     <main>
       <h1>Contact Us</h1>
-      <form /*onSubmit={handleSubmit(onSubmit)} */name='contactForm' method='POST' data-netlify="true">
+      <form onSubmit={handleSubmit()} name='contactForm' method='POST' data-netlify="true">
         <input type="hidden" name="form-name" value="contactForm" />
         <div className='wrapper-columns'>
           <div className='form-group'>
