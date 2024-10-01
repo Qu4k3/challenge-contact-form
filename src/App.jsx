@@ -53,7 +53,7 @@ function App() {
   return (
     <main>
       <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit()} name='contactForm' method='POST' data-netlify="true">
+      <form onSubmit={handleSubmit} name='contactForm' method='POST' data-netlify="true">
         <input type="hidden" name="form-name" value="contactForm" />
         <div className='wrapper-columns'>
           <div className='form-group'>
