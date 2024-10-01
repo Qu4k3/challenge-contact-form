@@ -51,6 +51,7 @@ function App() {
             <input
               type="text"
               id="firstName"
+              name="firstName"
               aria-required="true"
               aria-invalid={errors.firstName ? "true" : "false"}
               {...register("firstName", {
@@ -66,6 +67,7 @@ function App() {
             <input
               type="text"
               id="lastName"
+              name="lastName"
               aria-required="true"
               aria-invalid={errors.lastName ? "true" : "false"}
               {...register("lastName", {
@@ -82,6 +84,7 @@ function App() {
           <input
             type="text"
             id="email"
+            name="email"
             aria-required="true"
             aria-invalid={errors.email ? "true" : "false"}
             {...register("email", {
@@ -103,6 +106,7 @@ function App() {
               <label key={query.id} htmlFor={query.id} className={watchRadio === query.id ? "active" : ""}>
                 <input
                   type="radio"
+                  name="radio"
                   id={query.id}
                   value={query.id}
                   {...register("radio", {
@@ -131,7 +135,7 @@ function App() {
         </div>
 
         <div className='form-group consent'>
-          <label>
+          <label htmlFor="consent">
             <input
               type="checkbox"
               name="consent"
