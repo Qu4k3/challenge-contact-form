@@ -11,7 +11,7 @@ function App() {
   const {
     register,
     watch,
-    // handleSubmit,
+    handleSubmit,
     clearErrors,
     reset,
     formState: { errors },
@@ -27,12 +27,10 @@ function App() {
     { id: "SupportRequest", text: "Support Request" }
   ];
 
-  const handleSubmit = (event) => {
+  const onSubmit = (data) => {
     setIsLoading(true)
-    event.preventDefault();
 
-    const myForm = event.target;
-    const formData = getFormData(myForm)
+    const formData = getFormData(data)
 
     fetch("/", {
       method: "POST",
@@ -53,7 +51,7 @@ function App() {
   return (
     <main>
       <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit} name='contactForm' method='POST' data-netlify="true">
+      <form onSubmit={handleSubmit(onSubmit)} name='contactForm' method='POST' data-netlify="true">
         <input type="hidden" name="form-name" value="contactForm" />
         <div className='wrapper-columns'>
           <div className='form-group'>
