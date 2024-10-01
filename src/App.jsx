@@ -44,7 +44,7 @@ function App() {
   return (
     <main>
       <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} netlify>
         <div className='wrapper-columns'>
           <div className='form-group'>
             <label htmlFor="firstName">First Name <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
